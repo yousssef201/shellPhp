@@ -2,7 +2,7 @@
 <?php
 /*
  *	Una razon muy simple porque un archivo con extension PHP
- *	no debe tener permios 777 ni dueño root
+ *	no debe tener permios 777 ni debe pertenecer al usuario o grupo root
  */
 	$address = $argv[1];
 	$port = $argv[2];
@@ -15,7 +15,7 @@
 	//pone a la escucha el socket
 	if(socket_listen($sock, 5) === false)
 		echo "Error: " . socket_strerror(socket_last_error($sock)) . "\n";
-	
+	$msg="\n\tEjemplo practico para mostrar la importancia de los privilegios en un archivo web\n\n";
 	do
 	{
 		if (($msgsock = socket_accept($sock)) === false)
